@@ -40,7 +40,7 @@ Body
   ]
 }
 ``````
-
+Response:
 ```javascript
 {
     "orderFormId": "fa30a6d69ee447d9a4c6863f72498a3e",
@@ -2014,3 +2014,136 @@ Body
     "recaptchaKeyV3": "6LfnCR8mAAAAAGfsca_MuJ4oXTWJWOJ4TkPFOXzT"
 }
 ``````
+
+Encapsuladamente ele faz algumas outras requisições:
+
+Get:
+```javascript
+https://task23557--lojausereserva.myvtex.com/api/dataentities/MS/search?_where=(sellerId=1)&_fields=texto,logo,banner,bannerMobile,sellerName&1703426772354=cache
+```
+
+Response:
+```javascript
+[]
+```
+
+Get:
+```javascript
+https://task23557--lojausereserva.myvtex.com/_v/fbe/pixel
+```
+
+Response:
+```javascript
+{
+  "pixelId": "475696979236643",
+  "enablePixelIntegration": true
+}
+```
+
+Get:
+```javascript
+https://task23557--lojausereserva.myvtex.com/_v/rsv-prime/primepromotion?1703429213697=cache
+```
+
+Response:
+```javascript
+{
+  "idCalculatorConfiguration": "",
+  "marketingTags": [],
+  "name": "Reserva I PrimeTag 20%",
+  "percentualDiscountValue": 20,
+  "isActive": true,
+  "categories": [
+      {
+          "id": "198",
+          "name": "Cartão Presente (198)"
+      },
+      {
+          "id": "176",
+          "name": "Mini | Crianças | Cartão presente (176)"
+      },
+      {
+          "id": "11",
+          "name": "Reserva | Masculino | cartão presente (11)"
+      }
+  ],
+  "categoriesAreInclusive": false,
+  "brands": [],
+  "collections": [
+      {
+          "id": "239",
+          "name": "MINI Destaques Máscara Infantil (239)"
+      },
+      {
+          "id": "166",
+          "name": "RESERVA Novidades Camiseta Simples Assinatura (166)"
+      },
+      {
+          "id": "353",
+          "name": "Adulto Ofertas (353)"
+      },
+      {
+          "id": "698",
+          "name": "RESERVA Não Acumular Promo (698)"
+      },
+      {
+          "id": "684",
+          "name": "Reserva - Produto Surpresa (684)"
+      },
+      {
+          "id": "685",
+          "name": "RESERVA Produto Surpresa APP (685)"
+      }
+  ],
+  "collectionsIsInclusive": false,
+  "brandsAreInclusive": false,
+  "idSeller": "1,lojausereservago,lojausereservaondemand",
+  "idSellerIsInclusive": true,
+  "totalValueFloor": 499,
+  "totalValueCeling": 0
+}
+```
+
+Post:
+```javascript
+https://task23557--lojausereserva.myvtex.com/api/io/_v/facebook-checkout-pixel/notify
+```
+
+Body:
+```javascript
+{
+  "events": [
+    {
+      "eventName": "order-form-initiate-checkout",
+      "eventObject": {
+        "orderFormId": "fa30a6d69ee447d9a4c6863f72498a3e",
+        "payload": {
+          "contents": [
+            {
+              "id": "475029",
+              "item_price": 959,
+              "quantity": 2
+            }
+          ],
+          "content_ids": [
+            "475029"
+          ],
+          "currency": "BRL",
+          "num_items": 2,
+          "value": 1618
+        },
+        "eventId": "2fd4549f-d402-4706-a3da-8250042e39bf",
+        "eventSourceURL": "https://task23557--lojausereserva.myvtex.com/checkout#/email",
+        "fbpCookie": "fb.1.1702311891162.2032843782"
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+  ]
+}
+```
+
+Response:
+```javascript
+OK
+```
+
